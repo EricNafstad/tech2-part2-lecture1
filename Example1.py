@@ -34,6 +34,9 @@ def argmax(values):
 
     N = len(values)
     
+    if N == 0:
+        raise ValueError('Empty sequences are not supported')
+    
     imax = 0
     vmax = values[0]
     
@@ -55,6 +58,11 @@ def main():
     
     # Print the results
     print(f"The maximum value is {vmax} at index {imax}")
+
+    try:
+        argmax([])
+    except ValueError:
+        print('Error encountered')
 
 if __name__ == '__main__':
     main()
